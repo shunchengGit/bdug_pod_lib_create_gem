@@ -59,8 +59,18 @@ module PodLibCreate
 			end
 		end
 
+		def pod_name
+			the_name = ''
+			if ARGV and ARGV.size >= 1
+				the_name = ARGV[0].lstrip.rstrip
+			end
+			if not the_name or the_name.length < 1
+				the_name = ask("What is your pod name")
+			end
+			the_name
+		end
+
 		def create_pod_lib
-			pod_name = ask("What is your pod name")
 			cmd = "pod lib create " + pod_name + " --template-url=https://github.com/shunchengGit/pod_lib_create_template"
 			puts cmd
 			system cmd
