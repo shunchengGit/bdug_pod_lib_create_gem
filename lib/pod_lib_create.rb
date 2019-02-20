@@ -17,7 +17,7 @@ module PodLibCreate
 		    puts "\n#{question}?"
 
 		    print " > "
-		    answer = gets.chomp
+		    answer = STDIN.gets.chomp
 
 		    break if answer.length > 0
 
